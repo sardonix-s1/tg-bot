@@ -14,7 +14,8 @@ const bot = new TelegramBot(TOKEN, {
 bot.on("message", (msg) => {
   const chatId = msg.chat.id;
 
-  if (!ADMINS.includes(chatId)) {
+  if (ADMINS.includes(chatId)) {
+    bot.sendMessage(chatId, "Админ онлайн 👑");
     return;
   }
 
