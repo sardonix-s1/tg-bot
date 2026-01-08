@@ -1,1 +1,15 @@
-console.log("Бот запущен"):
+const TelegramBot = require("node-telegram-bot-api");
+
+const TOKEN = process.env.BOT_TOKEN;
+
+const bot = new TelegramBot(TOKEN, {
+  polling: true
+});
+
+bot.on("message", (msg) => {
+  const chatId = msg.chat.id;
+
+  bot.sendMessage(chatId, "Бот работает ✅");
+});
+
+console.log("Бот запущен и слушает сообщения");
